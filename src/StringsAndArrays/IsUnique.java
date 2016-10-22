@@ -5,10 +5,12 @@ package StringsAndArrays;
  */
 public class IsUnique {
     public static void main(String[] arg){
-        String Input="AbcdefAa";
+        String Input="AbcaA";
         char Inchar[] = Input.toCharArray();
         boolean Result = IsUnique(Inchar);
         System.out.println("String has all unique charcters? "+Result);
+        boolean Result2 = IsUnique2(Inchar);
+        System.out.println("String has all unique charcters? "+Result2);
     }
 
 
@@ -22,6 +24,18 @@ public class IsUnique {
             }
             else{
                 MapArray[index]=true;
+            }
+        }
+        return true;
+    }
+
+    //Method to check without using any new data structure
+    static boolean IsUnique2(char[] Inchar){
+        for (int i=0;i<Inchar.length-1;i++){
+            for(int j=i+1;j<Inchar.length;j++){
+                if (Inchar[i]==Inchar[j]){
+                    return false;
+                }
             }
         }
         return true;
